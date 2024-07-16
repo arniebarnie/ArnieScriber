@@ -8,7 +8,7 @@ Before you start, ensure you have the necessary permissions to execute scripts. 
 
 ### Step 1: Make the scripts executable
 
-`chmod +x install.sh`
+`chmod +x install.sh`<br />
 `chmod +x run.sh` 
 
 ### Step 2: Install the required programs
