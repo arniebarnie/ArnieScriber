@@ -1,6 +1,6 @@
 # Multi-Playlist Video Scraper + Transcription Tool
 
-This tool allows you to scrape multiple profiles/playlists from any site that yt-dlp supports and transcribe the videos using Whisper from OpenAI.
+ArnieScriber allows you to scrape multiple profiles/playlists from any site that yt-dlp supports and transcribe the videos using Whisper from OpenAI.
 
 ## Installation
 
@@ -30,7 +30,7 @@ The `install.sh` script will install the following programs and Python packages:
 
 ## Usage
 
-Create a text file (`playlists.txt`) with the URLs of the profiles/playlists you want to scrape, one URL per line. Pass this file as an argument to the `run.sh` script.
+Create a text file (`playlists.txt`) with the name of the profiles/playlists you want to scrape, one name per line. Pass this file as an argument to the `run.sh` script.
 
 Example of `playlists.txt` for TikTok profiles:
 
@@ -48,7 +48,7 @@ Example of `playlists.txt` for TikTok profiles:
 `the.spectacularspi`<br />
 
 ### Run the script:
-Use the `run.sh` script to execute the tool with your playlist file:
+Use the `run.sh` script to execute ArnieScriber with your playlist file:
 
 `./run.sh playlists.txt` 
 
