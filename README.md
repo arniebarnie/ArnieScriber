@@ -1,6 +1,6 @@
-# Multi-Playlist Video Scraper + Transcription Tool
+# Multi-Profile Video Scraper + Transcription Tool
 
-ArnieScriber allows you to scrape multiple profiles/playlists from any site that yt-dlp supports and transcribe the videos using Whisper from OpenAI.
+ArnieScriber allows you to scrape multiple profiles from any site that yt-dlp supports and transcribe the videos using Whisper from OpenAI.
 
 ## Installation
 
@@ -30,9 +30,9 @@ The `install.sh` script will install the following programs and Python packages:
 
 ## Usage
 
-Create a text file (`playlists.txt`) with the name of the profiles/playlists you want to scrape, one name per line. Pass this file as an argument to the `run.sh` script.
+Create a text file (`profiles.txt`) with the name of the profiles you want to scrape, one name per line. Pass this file as an argument to the `run.sh` script.
 
-Example of `playlists.txt` for TikTok profiles:
+Example of `profiles.txt` for TikTok profiles:
 
 `roucurious`<br />
 `_alexciagresko`<br />
@@ -48,9 +48,9 @@ Example of `playlists.txt` for TikTok profiles:
 `the.spectacularspi`<br />
 
 ### Run the script:
-Use the `run.sh` script to execute ArnieScriber with your playlist file:
+Use the `run.sh` script to execute ArnieScriber with your profiles file:
 
-`./run.sh playlists.txt` 
+`./run.sh profiles.txt` 
 
 The `run.sh` script will perform the following actions:
 
@@ -60,7 +60,7 @@ The `run.sh` script will perform the following actions:
 4.  Run the main Python script (`arniescriber.py`) with the provided playlist file.
 
 ### Results:
-The results folder set in `config.json` will contain a csv for each profile/playlist labeled `"{profile/playlist name}-id-description-transcription.csv"`
+The results folder set in `config.json` will contain a csv for each profile labeled `"{profile/playlist name}-id-description-transcription.csv"`
 
 ## Config
 The tool uses a `config.json` file to manage settings:
@@ -79,4 +79,4 @@ If you encounter any issues, ensure the following:
 
 -   You have the necessary permissions to execute the scripts.
 -   All required programs and Python packages are installed correctly.
--   The names in your `playlists.txt` file are valid playlist/profile IDs.
+-   The names in your `profiles.txt` file are valid profile names.
