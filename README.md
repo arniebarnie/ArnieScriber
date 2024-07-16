@@ -34,18 +34,18 @@ Create a text file (`playlists.txt`) with the URLs of the profiles/playlists you
 
 Example of `playlists.txt` for TikTok profiles:
 
-`roucurious`
-`_alexciagresko`
-`bdtrelilbrother`
-`allissonmia_coronadoo`
-`meekotheiggy`
-`jairitosolano`
-`hayleys.worldx`
-`sebasmorenooo`
-`elcromass`
-`inisikiboo`
-`janemukbangs`
-`the.spectacularspi` 
+`roucurious`<br />
+`_alexciagresko`<br />
+`bdtrelilbrother`<br />
+`allissonmia_coronadoo`<br />
+`meekotheiggy`<br />
+`jairitosolano`<br />
+`hayleys.worldx`<br />
+`sebasmorenooo`<br />
+`elcromass`<br />
+`inisikiboo`<br />
+`janemukbangs`<br />
+`the.spectacularspi`<br />
 
 ### Run the script:
 Use the `run.sh` script to execute the tool with your playlist file:
@@ -63,7 +63,7 @@ The `run.sh` script will perform the following actions:
 The results folder set in `config.json` will contain a csv for each profile/playlist labeled `"{profile/playlist name}-id-description-transcription.csv"`
 
 ## Config
-The tool uses a `config.json` file to manage various settings. Below are the options available in the `config.json` file and their explanations:
+The tool uses a `config.json` file to manage settings:
 
 -   **cpus**: The number of CPU cores to use for parallel processing. Set this to the number of cores you want the tool to utilize.
 -   **gpus**: The number of GPU units to use for accelerating tasks. This should match the number of GPUs available on your machine.
