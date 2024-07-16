@@ -60,7 +60,7 @@ The `run.sh` script will perform the following actions:
 4.  Run the main Python script (`arniescriber.py`) with the provided playlist file.
 
 ### Results:
-The results folder set in `config.json` will contain a csv for each profile labeled `"{profile/playlist name}-id-description-transcription.csv"`
+The results folder set in `config.json` will contain a csv for each profile labeled `"{profile name}-id-description-transcription.csv"`
 
 ## Config
 The tool uses a `config.json` file to manage settings:
