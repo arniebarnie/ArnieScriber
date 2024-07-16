@@ -79,4 +79,4 @@ If you encounter any issues, ensure the following:
 
 -   You have the necessary permissions to execute the scripts.
 -   All required programs and Python packages are installed correctly.
--   The URLs in your `playlists.txt` file are valid playlist/profile IDs.
+-   The names in your `playlists.txt` file are valid playlist/profile IDs.
