@@ -1,0 +1,9 @@
+{
+    "cpus" : 4 ,
+    "gpus" : 1,
+    "whispers" : 3,
+    "url format" : "https://www.tiktok.com/@{}",
+    "temp" : "downloads",
+    "results" : "results",
+    "model" : "base-en"
+}
