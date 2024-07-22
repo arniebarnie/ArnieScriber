@@ -2,6 +2,8 @@ import json
 import os
 from os import path
 
+CONFIG = None
+
 def GlobalConfig():
     """
     Reads in the configuration from the config.json file

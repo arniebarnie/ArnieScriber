@@ -160,8 +160,8 @@ if __name__ == '__main__':
     # Create temp and download folders if they do not exist
     if not path.isdir(CONFIG['temp']):
         os.makedirs(CONFIG['temp'])
-    if not path.isdir(CONFIG['downloads']):
-        os.makedirs(CONFIG['downloads'])
+    if not path.isdir(CONFIG['results']):
+        os.makedirs(CONFIG['results'])
     
     # Check for cuda and load models
     device = torch.device('cuda' if available else 'cpu')
