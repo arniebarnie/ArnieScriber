@@ -68,7 +68,10 @@ The tool uses a `config.json` file to manage settings:
 -   **cpus**: The number of CPU cores to use for parallel processing. Set this to the number of cores you want the tool to utilize.
 -   **gpus**: The number of GPU units to use for accelerating tasks. This should match the number of GPUs available on your machine.
 -   **whispers**: The number of concurrent Whisper transcription instances to run. Adjust this based on your system's capacity.
--   **url format**: The format string for constructing URLs to scrape. The `{}` placeholder will be replaced with the specific playlist or video identifier. Ex: `"https://www.tiktok.com/@{}"` for TikTok profiles
+-   **url format**: The format string for constructing URLs to scrape. The `{}` placeholder will be replaced with the specific playlist or video identifier. Ex: `"https://www.tiktok.com/@{}"` for TikTok profiles. If you are using any other types of social media, please check the [yt-dlp documentation](https://github.com/yt-dlp/yt-dlp) to see: 
+    1. If it is supported by yt-dlp.
+    2. If profile scraping is supported for the specific social media platform. This script is designed to scrape **profiles**, not individual videos.
+    3. Once you have verified that it is supported, replace the **url format** in the config.json file to the respective url type. Ex: `"https://www.youtube.com/@{}`
 -   **temp**: The directory path where temporary download files will be stored. Ensure this path exists or is writable.
 -   **results**: The directory path where the transcription results will be saved. Ensure this path exists or is writable.
 -   **model**: The Whisper model to use for transcription. Common options include `base-en` for the English language model.
