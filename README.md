@@ -1,6 +1,6 @@
 # Multi-Profile Video Scraper + Transcription Tool
 
-ArnieScriber allows you to scrape multiple profiles from any site that yt-dlp supports and transcribe the videos using Whisper from OpenAI.
+ArnieScriber allows you to scrape multiple profiles from any site that [yt-dlp](https://github.com/yt-dlp/yt-dlp) supports and transcribe the videos using [Whisper](https://github.com/openai/whisper) from OpenAI.
 
 ## Installation
 

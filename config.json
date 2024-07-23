@@ -5,5 +5,5 @@
     "url format" : "https://www.tiktok.com/@{}",
     "temp" : "downloads",
     "results" : "results",
-    "model" : "base-en"
+    "model" : "base.en"
 }
