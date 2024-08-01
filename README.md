@@ -76,6 +76,28 @@ The tool uses a `config.json` file to manage settings:
 -   **results**: The directory path where the transcription results will be saved. Ensure this path exists or is writable.
 -   **model**: The Whisper model to use for transcription. Common options include `base-en` for the English language model.
 
+## YoonScraper
+This tool uses a similar process as arniescriber, with the only difference being that:
+    
+1. It reads in a CSV or Excel file that has links in the very first column
+2. It is not a multiprocessed script, so it is not ideal for large amounts of links
+3. The script will return either a csv file or excel file that will contain another column containing all the transcripts
+4. This script will also put an error message for the transcription if something goes wrong during the process. 
+
+### Config
+
+The configuration for YoonScraper is contained as the `CONFIG` dictionary to manage settings:
+
+-   **url_format**: The fromat string for constructing URLS to scrape. The `{}` placeholder will be replaced with the specific playlist, video, or profile. x: `"https://www.tiktok.com/@{}"` for TikTok profiles. If you are using any other types of social media, please check the [yt-dlp documentation](https://github.com/yt-dlp/yt-dlp) to see: 
+    1. If it is supported by yt-dlp.
+    2. If profile scraping is supported for the specific social media platform. This script is designed to scrape **profiles**, not individual videos.
+    3. Once you have verified that it is supported, replace the **url format** in the config.json file to the respective url type. Ex: `"https://www.youtube.com/@{}`
+-   **temp**: The directory path where temporary download files will be stored. Ensure this path exists or is writable.
+-   **final_file_name**: The name of file storring all the results.
+-   **format**: The format of the saved file.
+
+
+
 ## Troubleshooting
 
 If you encounter any issues, ensure the following:

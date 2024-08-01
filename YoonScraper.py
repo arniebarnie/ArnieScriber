@@ -76,6 +76,11 @@ if __name__ == '__main__':
         df = pd.read_excel(filename)   
     elif filename.split('.')[-1] == 'csv':
         df = pd.read_csv(filename)
+    else:
+        raise ValueError('Invalid input file')
+
+    #renaming the first column to link
+    df.columns.values[0] = 'link'
 #Process each link in the Excel file
     transcription_list = []
     for _, row in df.iterrows():
@@ -102,3 +107,5 @@ if __name__ == '__main__':
     elif CONFIG['format'] == 'xslx':
         df.to_excel(CONFIG['final_file_name'] + "." + CONFIG['format'])
         print('exported to excel file successfully')
+    else:
+        raise ValueError("Invalid final file format")
