@@ -15,6 +15,8 @@ from config import GlobalConfig
 available = torch.cuda.is_available()
 CONFIG = GlobalConfig()
 
+ID_MAP= {}
+
 EXTS = {
     'audio': '.m4a',
     'description': '.description'
@@ -85,6 +87,27 @@ def downloader(profile: str) -> None:
     except:
         print(f'ERROR DOWNLOADING {profile}\'s videos')
 
+def id_map(profile: str):
+    video_url = CONFIG['url format'].format(profile)
+
+    ydl_opts = {
+        'quiet': True,  # Suppress output
+        'skip_download': True,  # Skip downloading the video file
+        'extract_flat': True,  # Extract metadata without resolving playlists
+        'force_generic_extractor': True,  # Use the generic extractor
+    }
+
+    # Create an instance of YoutubeDL with the specified options
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        # Extract information dictionary
+        info_dict = ydl.extract_info(video_url, download=False)
+        
+        # Retrieve and return the uploader ID
+        uploader_id = info_dict.get('uploader_id', None)
+    
+    id_map[profile] = uploader_id
+
+
 # If cuda is available, set gpu space for whispers
 @ray.remote(num_gpus = CONFIG['gpus'] / CONFIG['whispers'] if available else 0)
 def transcribe(afile: str, model: whisper.Whisper) -> str:
@@ -120,17 +143,18 @@ def transcriber(args: tuple[str, ray.ObjectRef]) -> None:
     Returns:
         None
     """
-    # Unpack arguments
     profile, model = args
     print(f'Running {profile}...')
+
+    id_map(profile)
     
     # Check if profile is already transcribed
-    if path.isfile(path.join(CONFIG['results'], f'{profile}-id-description-transcription.csv')):
+    if path.isfile(path.join(CONFIG['results'], f'{ID_MAP[profile]}-id-description-transcription.csv')):
         return
     
     # Download audios
     downloader(profile)
-    folder = path.join(CONFIG['temp'], profile)
+    folder = path.join(CONFIG['temp'],ID_MAP[profile])
     if not path.isdir(folder):
         return
     
@@ -148,7 +172,7 @@ def transcriber(args: tuple[str, ray.ObjectRef]) -> None:
     data['transcription'] = data['transcription'].map(lambda x: ray.get(transcribe.remote(x, model)))
     
     # Save results to csv and delete downloaded files
-    data.to_csv(os.path.join(CONFIG['results'], f'{profile}-id-description-transcription.csv'))
+    data.to_csv(os.path.join(CONFIG['results'], f'{ID_MAP[profile]}-id-description-transcription.csv'))
     shutil.rmtree(folder)
     print(f'{profile}\'s transcription complete')
     
